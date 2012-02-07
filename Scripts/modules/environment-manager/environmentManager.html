@@ -1,0 +1,77 @@
+﻿<style type="text/css">
+    label
+    {
+        display: block;
+        text-align: right;
+        padding: 6px;
+        vertical-align: middle;
+    }
+    input
+    {
+        width: 60%;
+    }
+    .pane, .pane-right
+    {
+        padding: 12px;
+    }
+    .right
+    {
+        text-align: right;
+    }
+</style>
+<div>
+    <div class="pane">
+        <h2>
+            Environments</h2>
+        <ul data-bind="foreach: environments, kendoPanelBar: {expandMode: 'single', select: selectEnvironment}">
+            <li data-bind="css: {connected: isConnected, error: hasError}"><span style="font-size: 14px"
+                data-bind="text:name"></span><span style="float: right;" data-bind="text:status">
+                </span>
+                <div class="pane">
+                    <label>
+                        Name:
+                        <input class="k-textbox" type="text" data-bind="value:name" /></label>
+                    <label>
+                        Url:
+                        <input class="k-textbox" type="url" data-bind="enabled: !isConnected, value:address" /></label>
+                    <label>
+                        Log in as me
+                        <input class="k-textbox" type="checkbox" data-bind="enabled: !isConnected, checked:specifyUser" />
+                    </label>
+                    <div class="pane" data-bind="visible:showLogInPane">
+                        <h3 class="subheading">
+                            Credentials</h3>
+                        <label>
+                            User name:
+                            <input class="k-textbox" type="text" data-bind="enabled: !isConnected, value:userName" /></label>
+                        <label>
+                            Password:
+                            <input class="k-textbox" type="password" data-bind="enabled: !isConnected, value:password" /></label>
+                        <label>
+                            Domain:
+                            <input class="k-textbox" type="text" data-bind="enabled: !isConnected, value:domain" /></label>
+                    </div>
+                    <div class="pane">
+                        <div class="right"><span data-bind="text:dirtyFlag.isDirty()"></span>
+                            <button class="k-button" data-bind='visible: dirtyFlag.isDirty(), click: $root.persist'>
+                                Save</button>
+                            <button class="k-button" data-bind='visible: isConnected(), click: disconnect'>
+                                Disconnect</button>
+                            <button class="k-button" data-bind='visible: !isConnected(), click: $root.connectToEnvironment'>
+                                Connect</button>
+                            <button class="k-button" data-bind='visible: !isConnected(), click: $root.deleteEnvironment'>
+                                Remove</button>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="pane right">
+        <button class="k-button" data-bind='click: addEnvironment'>
+            Add an environment</button>
+        <button class="k-button" data-bind='visible: isDirty(), click: persist'>
+            Save</button>
+    </div>
+    
+</div>

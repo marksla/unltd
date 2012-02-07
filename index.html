@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <link href="Scripts/lib/kendoui/source/styles/kendo.common.css" rel="stylesheet" />
+    <link href="css/kendo.metro.min.css" rel="stylesheet" type="text/css" />
+    <script data-main="scripts/main" src="scripts/lib/require-jquery.js"></script>
+    <title>entity transfer tool</title>
+</head>
+<body>
+    <h1>
+        entity transfer tool</h1>
+    <div data-bind="kendoTabStrip: {}">
+        <ul>
+            <li><h2>Transfer</h2></li>
+            <li><h2>Environments</h2></li>
+        </ul>
+        <div>
+            <div style="width:30%"
+                data-bind="region:{vm:'entity-selector/entitySelector', view: 'entity-selector/entitySelector'}">
+            </div>
+
+        </div>
+        <div data-bind="region:{vm:'environment-manager/environmentManager', view: 'environment-manager/environmentManager'}">
+        </div>
+    </div>
+      <div data-bind="region:{vm:'log/log', view: 'log/log'}">
+        </div>
+</body>
+</html>

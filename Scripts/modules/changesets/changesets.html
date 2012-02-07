@@ -1,0 +1,10 @@
+﻿<div class="pane">
+    <h2>
+        Changesets</h2>
+    
+    <ul data-bind="foreach: changesets, kendoTreeView: {}">
+        <li data-bind="text:name"></li>
+    </ul>
+
+     <p data-bind="text:status"></p>
+</div>

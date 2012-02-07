@@ -1,0 +1,26 @@
+﻿<div class="pane">
+    <h2>
+        Entities</h2>
+    <label>Source Environment:
+     <select data-bind="options: environments, 
+                   optionsText: 'name', 
+                   value: environment, 
+                   optionsCaption: 'Source...'"></select>
+                   </label>
+    <ul data-bind="foreach: entities, kendoTreeView: {select: selectEntity}">
+        <li data-bind="text:Name"></li>
+    </ul>
+    <textarea data-bind="value:selectedEntityXml" rows="18" cols="100"></textarea>
+    <textarea data-bind="value:response" rows="10" cols="100"></textarea>
+    <div class="pane">
+    <h3>Transfer</h3>
+    <label>Target Environment:
+    <select data-bind="options: environments, 
+                   optionsText: 'name', 
+                   value: targetEnvironment, 
+                   optionsCaption: 'Target...'"></select>
+                   </label>
+    <button data-bind="click:transfer">Transfer</button>
+    </div>
+    <p data-bind="text:status"></p>
+</div>
